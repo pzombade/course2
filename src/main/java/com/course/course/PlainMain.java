@@ -4,6 +4,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -18,9 +21,23 @@ public class PlainMain {
 
 	private static DatabaseReference ref;
 
+	public static void main(String[] args) throws Exception {
+		doJson();
+	}
 
 
-	public static void main(String[] args) throws IOException, InterruptedException {
+	private static void doJson() throws Exception {
+		//String s = "{\"id\":\"37e4943f-1bac-40b4-b4a3-8b7ec7846d38\",\"timestamp\":\"2018-07-12T17:30:11.637Z\",\"lang\":\"en\",\"result\":{\"source\":\"agent\",\"resolvedQuery\":\"123\",\"speech\":\"\",\"action\":\"test\",\"actionIncomplete\":false,\"parameters\":{\"number\":123},\"contexts\":[],\"metadata\":{\"intentId\":\"2990cef5-c561-4f80-89bb-b7592951de32\",\"webhookUsed\":\"true\",\"webhookForSlotFillingUsed\":\"false\",\"intentName\":\"test\"},\"fulfillment\":{\"speech\":\"\",\"messages\":[{\"type\":0,\"speech\":\"\"}]},\"score\":1.0},\"status\":{\"code\":200,\"errorType\":\"success\"},\"sessionId\":\"140d9213-fc7e-0eee-547b-5a60ef91a4e3\"}";
+		String s = "{\"id\":\"ebafb770-54c5-4763-a257-4cab69c2b705\",\"timestamp\":\"2018-07-12T17:51:45.668Z\",\"lang\":\"en\",\"result\":{\"source\":\"agent\",\"resolvedQuery\":\"1234\",\"speech\":\"\",\"action\":\"test\",\"actionIncomplete\":false,\"parameters\":{\"number\":\"1234\"},\"contexts\":[],\"metadata\":{\"intentId\":\"2990cef5-c561-4f80-89bb-b7592951de32\",\"webhookUsed\":\"true\",\"webhookForSlotFillingUsed\":\"false\",\"intentName\":\"test\"},\"fulfillment\":{\"speech\":\"\",\"messages\":[{\"type\":0,\"speech\":\"\"}]},\"score\":1.0},\"status\":{\"code\":200,\"errorType\":\"success\"},\"sessionId\":\"140d9213-fc7e-0eee-547b-5a60ef91a4e3\"}";
+		JSONObject obj = new JSONObject(s);
+		//JSONObject number = obj.getJSONObject("result").getJSONObject("parameters");
+		String number = obj.getJSONObject("result").getJSONObject("parameters").getString("number");
+		
+		System.out.println("number="+number);
+	}
+
+
+	public static void main2(String[] args) throws IOException, InterruptedException {
 		FileInputStream serviceAccount =
 				  new FileInputStream("C:\\projects\\dominospizza-78e07-firebase-adminsdk-yh24y-d071d4aaa8.json");
 
