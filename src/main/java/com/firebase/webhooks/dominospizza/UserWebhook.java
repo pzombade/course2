@@ -15,7 +15,7 @@ public class UserWebhook {
 	    String json = httpEntity.getBody();
 		System.out.println("request json object = "+json);
 		
-		String speech="Hello from spring";
+		String speech="Hello from spring json="+json;
 		return "{'speech': '"+speech+"', 'displayText':'"+speech+"'}";
 	    
 	}
