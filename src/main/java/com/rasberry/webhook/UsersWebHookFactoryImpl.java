@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.course.course.MyOwnApplication;
 import com.rasberry.webhook.dominospizza.AddUserDominosWebHookExecuter;
+import com.rasberry.webhook.dominospizza.GetAllUsersExecuter;
 import com.rasberry.webhook.dominospizza.GetUserDominosWebHookExecuter;
 
 public class UsersWebHookFactoryImpl implements WebHookFactory {
@@ -17,6 +18,7 @@ public class UsersWebHookFactoryImpl implements WebHookFactory {
 		//FactoryMap.put("addUser", new AddUserDominosWebHookExecuter());
 		FactoryMap.put("getUser", MyOwnApplication.getBean(GetUserDominosWebHookExecuter.class));
 		FactoryMap.put("addUser", MyOwnApplication.getBean(AddUserDominosWebHookExecuter.class));
+		FactoryMap.put("getAllUsers", MyOwnApplication.getBean(GetAllUsersExecuter.class));
 	}
 	
 	@Override

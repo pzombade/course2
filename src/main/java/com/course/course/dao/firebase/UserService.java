@@ -26,7 +26,7 @@ public class UserService {
 		return dao.getUser(number);
 	}
 
-	public Collection<Users> getUser() {
+	public Collection<Users> getAllUsers() {
 		return dao.getUser();
 	}
 

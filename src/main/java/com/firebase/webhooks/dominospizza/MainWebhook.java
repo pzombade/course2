@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
 import com.rasberry.webhook.WebHookExecuter;
 import com.rasberry.webhook.WebHookFactory;
 import com.rasberry.webhook.WebHookFactoryManager;
@@ -33,6 +34,8 @@ public class MainWebhook {
 			WebHookFactory wf = WebHookFactoryManager.getFactory(appNameStr);
 			WebHookExecuter ex = wf.getWebHookExecuter(action);
 			response = ex.executeWebHook(params);
+			Gson gson = new Gson();
+			response = gson.toJson(response); 
 		} catch (JSONException e1) {
 			e1.printStackTrace();
 		}
@@ -40,6 +43,6 @@ public class MainWebhook {
 		
 		String speech="Hello from spring appNameStr="+appNameStr+" action="+action+" response="+response+" json="+reqObject;
 		System.out.println("request action = "+action);
-		return "{'speech': '"+action+"', 'displayText':'"+speech+"'}";
+		return "{'speech': '"+response+"', 'displayText':'"+speech+"'}";
 	}
 }
