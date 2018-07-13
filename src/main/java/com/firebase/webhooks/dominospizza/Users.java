@@ -4,6 +4,7 @@ public class Users{
 	
 	private String first;
 	private String last;
+	private String id;
 	
 	public Users(String f, String l) {
 		this.first = f;
@@ -12,6 +13,12 @@ public class Users{
 	
 	public Users() {}
 	
+	public Users(String id, String first, String last) {
+		this.id = id;
+		this.first = first;
+		this.last = last;
+	}
+
 	public String getFirst() {
 		return first;
 	}
@@ -27,6 +34,14 @@ public class Users{
 	
 	@Override
 	public String toString() {
-		return "first="+first+" ,last="+last;
+		return "id="+id+" ,first="+first+" ,last="+last;
+	}
+
+	public String getId() {
+		return id;
+	}
+	
+	public String setId(String i) {
+		return id=i;
 	}
 }

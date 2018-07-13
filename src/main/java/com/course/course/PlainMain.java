@@ -22,10 +22,10 @@ public class PlainMain {
 	private static DatabaseReference ref;
 
 	public static void main(String[] args) throws Exception {
-		doJson();
+	//	doJson();
 	}
-
-
+}
+	/*
 	private static void doJson() throws Exception {
 		//String s = "{\"id\":\"37e4943f-1bac-40b4-b4a3-8b7ec7846d38\",\"timestamp\":\"2018-07-12T17:30:11.637Z\",\"lang\":\"en\",\"result\":{\"source\":\"agent\",\"resolvedQuery\":\"123\",\"speech\":\"\",\"action\":\"test\",\"actionIncomplete\":false,\"parameters\":{\"number\":123},\"contexts\":[],\"metadata\":{\"intentId\":\"2990cef5-c561-4f80-89bb-b7592951de32\",\"webhookUsed\":\"true\",\"webhookForSlotFillingUsed\":\"false\",\"intentName\":\"test\"},\"fulfillment\":{\"speech\":\"\",\"messages\":[{\"type\":0,\"speech\":\"\"}]},\"score\":1.0},\"status\":{\"code\":200,\"errorType\":\"success\"},\"sessionId\":\"140d9213-fc7e-0eee-547b-5a60ef91a4e3\"}";
 		String s = "{\"id\":\"ebafb770-54c5-4763-a257-4cab69c2b705\",\"timestamp\":\"2018-07-12T17:51:45.668Z\",\"lang\":\"en\",\"result\":{\"source\":\"agent\",\"resolvedQuery\":\"1234\",\"speech\":\"\",\"action\":\"test\",\"actionIncomplete\":false,\"parameters\":{\"number\":\"1234\"},\"contexts\":[],\"metadata\":{\"intentId\":\"2990cef5-c561-4f80-89bb-b7592951de32\",\"webhookUsed\":\"true\",\"webhookForSlotFillingUsed\":\"false\",\"intentName\":\"test\"},\"fulfillment\":{\"speech\":\"\",\"messages\":[{\"type\":0,\"speech\":\"\"}]},\"score\":1.0},\"status\":{\"code\":200,\"errorType\":\"success\"},\"sessionId\":\"140d9213-fc7e-0eee-547b-5a60ef91a4e3\"}";
@@ -139,3 +139,4 @@ class Users{
 		return "first="+first+" ,last="+last;
 	}
 }
+*/

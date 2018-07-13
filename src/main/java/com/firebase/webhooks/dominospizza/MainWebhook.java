@@ -15,7 +15,7 @@ import com.rasberry.webhook.WebHookFactoryManager;
 
 @RestController
 @RequestMapping("raspberry")
-public class UserWebhook {
+public class MainWebhook {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String insterNewStudent(@RequestHeader(value="appName") String appNameStr, HttpEntity<String> httpEntity) {
