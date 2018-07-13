@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("webhook")
+@RequestMapping("raspberry")
 public class UserWebhook {
 	
 	@RequestMapping(method=RequestMethod.POST)
@@ -17,21 +17,19 @@ public class UserWebhook {
 	    String reqObject = httpEntity.getBody();
 		System.out.println("request json object = "+reqObject);
 		
-		String number="default";
+		String action="default";
 		JSONObject obj;
 		try {
 			obj = new JSONObject(reqObject);
-			number = obj.getJSONObject("result").getJSONObject("parameters").getString("number");
+			action = obj.getJSONObject("result").getString("action");
 		} catch (JSONException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		//JSONObject number = obj.getJSONObject("result").getJSONObject("parameters");
 		
-		
-		
-		String speech="Hello from spring number="+number+" json="+reqObject;
-		return "{'speech': '"+speech+"', 'displayText':'"+speech+"'}";
-	    
+		String speech="Hello from spring action="+action+" json="+reqObject;
+		System.out.println("request action = "+action);
+		return "{'speech': '"+action+"', 'displayText':'"+speech+"'}";
 	}
 }
